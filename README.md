@@ -2,8 +2,20 @@
 
 ---
 
-**How to execute**
+# **How to execute**
 
+
+###  포어트리를 이용한 가상 환경과 의존성 관리
+
+```
+$ poetry env list --full-path
+/Users/myname/Library/Caches/pypoetry/virtualenvs/fastapi-ca-xxx...-py3.11 (Activated)
+
+$ emulate bash -c '. /.../bin/activate/bin/activate'
+```
+> 포어트리는 Python 중심의 개발에서 고려되는 프로젝트 관리 및 패키징을 위한 가상 환경
+
+### Run my server
 ```
 uvicorn main:app --reload
 ```
@@ -13,4 +25,16 @@ uvicorn main:app --reload
 - If you want to assign a port
 ```
 uvicorn main:app --reload --port 8080
+```
+---
+### Check API DOCs
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+# Docker & Database
+독립된 개발 환경을 위해 도커를 이용해 MySQL을 실행함: `open -a Docker`
+```
+docker run --name mysql-local -p 3306:3306/tcp -e MYSQL_ROOT_PASSWORD=test -d mysql:8
 ```
